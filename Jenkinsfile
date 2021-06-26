@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..Bro Mas'
+                echo 'Testing..Mbas'
             }
         }
         stage('Deploy') {
