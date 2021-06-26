@@ -9,12 +9,17 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..Mbas'
+                sh './vendor/bin/phpunit'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....again'
+                sh '"cd ~/project/myblog; \
+                git pull origin master; \
+                composer install --optimize-autoloader --no-dev;
+                php artisan migrate --force; \
+                php artisan cache:clear; \
+                php artisan config:cache "'
             }
         }
     }
