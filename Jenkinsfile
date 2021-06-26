@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh '"cd ~/project/myblog; \
+                sh 'ssh -o StrictHostkeyChecking=no fahrul@localhost "cd ~/project/myblog; \
                 git pull origin master; \
                 composer install --optimize-autoloader --no-dev; \
                 php artisan migrate --force; \
